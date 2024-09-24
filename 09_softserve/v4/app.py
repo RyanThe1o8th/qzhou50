@@ -15,6 +15,6 @@ def hello_world():
     print(__name__)
     return "No hablo queso!"
 
-if __name__ == "__main__":      # true if this file NOT imported
+if __name__ == "__main__":      # true if this file NOT imported. So does the file not run if it is imported will the screen just show up as blank or an error will appear?
     app.debug = True            # enable auto-reload upon code change
     app.run()
