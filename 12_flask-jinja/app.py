@@ -1,17 +1,25 @@
-# Clyde 'Thluffy' Sinclair
+# Stanley Hoo, Alex Luo, Ryan Zhou
+# QSA
 # SoftDev
-# Sep 2024
+# K12 -- Just Plug It In
+# 2024-09-27
+# time spent: 0.5
 
 """
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Q0:
 <your response here>
+Prediction: return render_template will give an error
+Actual: Says render_template is not defined
 
 Q1:
 <your response here>
+http://127.0.0.1:5000/my_foist_template
 
 Q2:
 <your response here>
+'model_tmplt.html' --> html page to load
+foo, collection --> data we pass to the html web page through this python script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 """
 
@@ -26,7 +34,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    return "No hablo queso!"
+    return "No hablo queso!" + "<a href='/my_foist_template'> Template </a>"
 
 coll = [0,1,1,2,3,5,8]
 
