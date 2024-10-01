@@ -1,3 +1,5 @@
 You can make the table inside of the html coding using jinja.
 You need a table tag to make a table otherwise it just ignores the <td> and <tr> and prints it as if those weren't there.
-   
+Use href to add a link to code.
+All the links are from the US Bureau of Labor Statistics.
+Instead of using the weights to choose a random occupation, we used the random number generator to generate one and found the corresponding value.
