@@ -1,44 +1,55 @@
-"""
-Boas : Qianjun Ryan Zhou
+'''
+Michelle, Ryan, Linda
+Boas
 SoftDev
-K16 - flask-sessions
-2024-10-10
-time spent:
-"""
+K16 -- flask_sessions
+2024-10-11
+time spent: 1.5
+'''
 
-from flask import Flask             #facilitate flask webserving
-from flask import render_template   #facilitate jinja templating
-from flask import request           #facilitate form submission
-from flask import redirect
+from flask import Flask
+from flask import render_template   
+from flask import request
 from flask import session
-from flask import make_response
+from flask import redirect
+from flask import url_for
 
 app = Flask(__name__)
+app.secret_key = 'haha'
 
-@app.route("/")
-def disp_loginpage():
-    saved_name = request.cookies.get("saved_name")
-    return render_template('login.html', saved_name = saved_name)
+@app.route('/')
+def index():
+    if 'username' in session:
+        return redirect(url_for('response'))
+    return redirect(url_for('login'))
 
-@app.route("/auth", methods = ['POST'])
-def authenticate():
-    name = request.form['name']
-    #response = (render_template("response.html", name = name))
-    response = make_response(f'hai, {name}!')
-    #response = "hi"
-    response.set_cookie("saved_name", name)
-    return response
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        if username:  # If a username is provided, log in the user
+            session['username'] = username
+            return redirect(url_for('response'))
+        else:
+            return 'Please enter a username!'
+    return render_template('login.html')
 
-@app.route("/deleted_cookies")
-def delete_cookie():
-    response = (render_template('logout.html'))
-    #name = request.cookies.get("saved_name")
-    #response = "bye"
-    response = make_response(f'bai, {request.cookies.get("saved_name")}!')
-    response.set_cookie("saved_name", "", expires = 0)
-    return response
+# Allow only GET requests to the response page
+@app.route('/response', methods=['GET'])
+def response():
+    if 'username' in session:
+        return render_template('response.html', username=session['username'])
+    return redirect(url_for('login'))
+
+@app.route('/logout', methods=['GET'])
+def logout():
+    if 'username' in session:
+        user = session['username']
+        session.pop('username', None)
+        return render_template('logout.html', username=user)
+    return redirect(url_for('response'))
 
 if __name__ == "__main__": #false if this file imported as module
     #enable debugging, auto-restarting of server when this file is modified
-    app.debug = True
+    app.debug = True 
     app.run()
