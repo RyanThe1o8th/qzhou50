@@ -1,25 +1,39 @@
+<!DOCTYPE html>
 <html>
 <style>
+*{
+box-sizing: border=-box;
+}
 .column {
 	float : left;
-	width: 30%;
+}
+.left {
+width: 25%;
+}
+.right{
+width:75%;
 }
 .row:after {
+	content: "";
 	display : table;
 	clear : both;
+}
+body {
+background-color:grey;
+}
 </style>
 	<header>
-		<h1>
-			h1 foo
+		<h1 style = "background-color: #D3D3D3;">
+			<center>h1 foo
 		</h1>
 	</header>
 	<body>
 		<div class = "row">
-			<div class = "column" style = "background-color: #aaa;">
+			<div class = "column left">
 				<h2> frst div </h2>
-				<p> my text </p>
+				<p style = "color:white;"> my text </p>
 			</div>
-			<div class = "column" style = "background=color: #bbb;">
+			<div class = "column right">
 				<h2> column2 </h2>
 				<p> done </p>
 			</div>
