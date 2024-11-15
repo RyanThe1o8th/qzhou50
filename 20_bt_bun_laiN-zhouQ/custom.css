@@ -27,3 +27,7 @@ header{
 p{
     padding: 0px 10px;
 }
+.xmp{
+    display: block;
+    padding: 0px 10px;
+}
