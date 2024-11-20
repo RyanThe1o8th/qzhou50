@@ -1,7 +1,7 @@
 ## DISCO
 You can resize images using divs to make them overlap/do other things. 
-Some of the code requires a script to run in order for everything to work.
-Most it all has resizing build into the base.
+<br>Some of the code requires a script to run in order for everything to work.
+<br>Most it all has resizing build into the base.
 ## QCC
 Scripts for Jquesry/JS must be at the bottom of the body.
 Components like the accordian, tabs, and tooltips are distinguished by their id.
