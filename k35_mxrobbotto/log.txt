@@ -1,0 +1,1 @@
+Kinda just told it what to do and everything worked. Copied over a few other lines of code since certain things were outdated.
